@@ -1,8 +1,8 @@
-import discord
 import asyncio
 import json
 import unicodedata
 
+import discord
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
@@ -28,7 +28,7 @@ def strip_accents(s):
                   if unicodedata.category(c) != 'Mn')
 
 
-async def send_message_discord(tweet, username):
+async def send_message_discord(username, tweet):
     global CHANNEL_ID
     channel = discord.Object(id=CHANNEL_ID)
     em = discord.Embed(title=username, description=tweet, colour=0x3498db)
@@ -55,7 +55,7 @@ class listener(StreamListener):
 
             print(username, tweet)
             if any(strip_accents(word) in strip_accents(tweet) for word in self.interesting_words) and not retweeted:
-                asyncio.run_coroutine_threadsafe(send_message_discord(tweet, username), self.loop)
+                asyncio.run_coroutine_threadsafe(send_message_discord(username, tweet), self.loop)
 
     def on_error(self, status):
         print(status)
