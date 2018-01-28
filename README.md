@@ -2,7 +2,7 @@
 
 Simple python script to search tweets with specific hashtags and words and send them through Discord.
 
-## Getting Started
+### Getting Started
 
 Update the config.json file with your API keys and search parameters.
 
