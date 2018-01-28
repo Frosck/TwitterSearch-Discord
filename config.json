@@ -1,0 +1,11 @@
+{
+    "access_token": "",
+    "access_secret": "",
+    "consumer_key": "",
+    "consumer_secret": "",
+    "discord_token": "",
+    "channel_id": "",
+
+    "interesting_words": [""],
+    "hashtags": [""]
+}
